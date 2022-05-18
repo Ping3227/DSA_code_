@@ -1,0 +1,7 @@
+1complex.obj  error LNK2019 無法解析的外部符號 public __thiscall ComplexdoubleComplexdouble(class Complexdouble const &) (0$Complex@N@@QAE@ABV0@@Z) 在函式 public class Complexdouble __thiscall Complexdoubleconjugate(void)const  (conjugate@$Complex@N@@QBEAV1@XZ) 中被參考
+1complex.obj  error LNK2019 無法解析的外部符號 public __thiscall ComplexdoubleComplexdouble(class Complexdouble &&) (0$Complex@N@@QAE@$$QAV0@@Z) 在函式 public class Complexdouble __thiscall Complexdoubleconjugate(void)const  (conjugate@$Complex@N@@QBEAV1@XZ) 中被參考
+1complex.obj  error LNK2019 無法解析的外部符號 public class Complexdouble __thiscall Complexdoubleoperator+(class Complexdouble const &)const  (H$Complex@N@@QBEAV0@ABV0@@Z) 在函式 _main 中被參考
+1complex.obj  error LNK2019 無法解析的外部符號 public class Complexdouble __thiscall Complexdoubleoperator(class Complexdouble const &)const  (D$Complex@N@@QBEAV0@ABV0@@Z) 在函式 _main 中被參考
+1complex.obj  error LNK2019 無法解析的外部符號 public class Complexdouble __thiscall Complexdoubleoperator(double const &)const  (D$Complex@N@@QBEAV0@ABN@Z) 在函式 _main 中被參考
+1complex.obj  error LNK2019 無法解析的外部符號 public class Complexdouble __thiscall Complexdoubleoperator(class Complexdouble const &)const  (K$Complex@N@@QBEAV0@ABV0@@Z) 在函式 _main 中被參考
+1CUsersHuangDesktop資訊New新增資料夾complexDebugcomplex.exe  fatal error LNK1120 6 個無法解析的外部符號

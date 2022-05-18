@@ -1,0 +1,22 @@
+#include <iostream>
+void f(int& numbers);
+int main() {
+	int  n;
+	while (std::cin >> n && n) {
+		while (n>=10) {
+			f(n);
+		}
+		std::cout << n << std::endl;
+	}
+	return 0;
+	
+}
+void f(int& numbers) {
+	int total{};
+	while (numbers) {
+		total += (numbers % 10);
+		numbers /= 10;
+	}
+	numbers = total;
+	return;
+};

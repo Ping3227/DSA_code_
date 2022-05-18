@@ -1,0 +1,50 @@
+#include <iostream>
+#include <iomanip>
+int test_order{};
+long long  test_num{};
+void count(long long num);
+int main() {
+	while (std::cin >> test_num) {
+		std::cout <<std::setw(4)<< ++test_order << ".";
+		if (test_num == 0) {
+			std::cout << " 0" << std::endl;
+		}
+		else {
+			count(test_num);
+			std::cout << std::endl;
+		}
+		
+	}
+	return 0;
+}
+
+void count(long long num ) {
+	if (num >= 10000000) {
+		count(num / 10000000);
+		std::cout  << " kuti" ;
+		num %= 10000000;
+	} 
+	
+	if (num >= 100000) {
+		count(num / 100000);
+		std::cout << " lakh" ;
+		num %= 100000;
+	}
+		
+	if (num >= 1000) {
+		count(num / 1000);
+		std::cout << " hajar" ;
+		num %= 1000;
+	}
+		
+	if (num >= 100) {
+		count(num / 100);
+		std::cout <<  " shata";
+		num %= 100;
+	}
+		
+	if (num)
+		std::cout<<" " << num;
+
+	return;
+};

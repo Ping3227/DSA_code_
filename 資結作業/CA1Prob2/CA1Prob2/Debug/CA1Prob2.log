@@ -1,0 +1,5 @@
+﻿  CA1Prob2.cpp
+c:\users\huang\desktop\資訊\資料結構\張恆華作業\ca1prob2\ca1prob2\ca1prob2.cpp(30): warning C4172: 傳回區域變數或暫存的位址: return_array
+c:\users\huang\desktop\資訊\資料結構\張恆華作業\ca1prob2\ca1prob2\ca1prob2.cpp(45): warning C4172: 傳回區域變數或暫存的位址: return_array
+c:\users\huang\desktop\資訊\資料結構\張恆華作業\ca1prob2\ca1prob2\ca1prob2.cpp(81): warning C4172: 傳回區域變數或暫存的位址: return_array
+  CA1Prob2.vcxproj -> C:\Users\Huang\Desktop\資訊\資料結構\張恆華作業\CA1Prob2\Debug\CA1Prob2.exe

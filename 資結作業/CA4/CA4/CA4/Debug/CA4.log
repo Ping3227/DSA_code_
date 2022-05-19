@@ -1,0 +1,11 @@
+﻿  CheckerBoard.cpp
+  Double.cpp
+D:\new_computer\張恆華作業\CA4\Double.cpp(49,14): warning C4244: '=': 將 'double' 轉換為 '__int64'，由於類型不同，可能導致資料遺失
+D:\new_computer\張恆華作業\CA4\Double.cpp(52,12): warning C4244: 'return': 將 '__int64' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  HashTableChained.cpp
+  String.cpp
+D:\new_computer\張恆華作業\CA4\String.cpp(60,12): warning C4244: 'return': 將 '__int64' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  TestHashTable.cpp
+D:\new_computer\張恆華作業\CA4\TestHashTable.cpp(29,15): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+  正在產生程式碼...
+  CA4.vcxproj -> D:\new_computer\張恆華作業\CA4\CA4\Debug\CA4.exe

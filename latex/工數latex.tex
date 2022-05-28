@@ -1,0 +1,195 @@
+\documentclass{beamer}
+
+\begin{document}
+
+\title{solve : 2y'''-6y''+6y'-2=2x^{\frac12}e^x\\[5]\small {y(0)=1,y'(0)=2,y''(0)=1}}
+
+
+
+\begin{frame}
+
+\titlepage  
+\end{frame}
+
+
+\begin{frame}{variation of parameter}
+
+\[
+2y'''-6y''+6y'-2=2x^{\frac12}e^x \Rightarrow y'''-3y''+3y'-1=x^{\frac12}e^x
+\]
+\\[8]
+characteristic equation:
+\[
+(\lambda-1)^3=0 \Rightarrow \lambda=1,1,1    
+\]
+
+\[
+y_h=Ax^2e^{x}+Bxe^x+Ce^x
+\]
+\end{frame}
+
+\begin{frame}{variation of parameter}
+initial assumption
+\[
+ \left\{\begin{matrix}
+        &u_1'y_1+u_2'y_2&=&0\\
+        &u_1'y_1'+u_2'y_2'&=&f(x)\\
+       \end{matrix}
+ \right.
+
+\]
+promote to 3
+\[\Rightarrow
+ \left\{\begin{matrix}
+        &u_1'y_1+u_2'y_2+u_3'y_3&=&0\\
+        &u_1'y_1'+u_2'y_2'+u_3'y_3'&=&0\\
+        &u_1'y_1''+u_2'y_2''+u_3'y_3''&=&f(x)\\
+       \end{matrix}
+ \right.
+
+\]
+\end{frame}
+\begin{frame}
+\scriptsize{u_1=\int \frac{\begin{bmatrix}
+0&xe^x&(x^2)e^x&\\
+0&(1+x)e^x&(2x+x^2)e^x&\\
+x^{\frac12}e^x&(2+x)e^x&(2+4x+x^2)e^x&\\
+\end{bmatrix}}{\begin{bmatrix}
+e^x&xe^x&(x^2)e^x&\\
+e^x&(1+x)e^x&2(2x+x^2)e^x&\\
+e^x&(2+x)e^x&(2+4x+x^2)e^x&\\
+\end{bmatrix}}dx
+=\int \frac{\begin{bmatrix}
+0&x&x^2&\\
+0&1&2x&\\
+x^{\frac12}&2&2+4x&\\
+\end{bmatrix}}{\begin{bmatrix}
+1&x&x^2&\\
+0&1&2x&\\
+0&2&2+4x&\\
+\end{bmatrix}}dx
+
+\\[5]=\int \frac{x^{\frac52}}{\begin{bmatrix}
+1&x&x^2&\\
+0&1&2x&\\
+0&0&2&\\
+\end{bmatrix}}dx=\int \frac{x^{\frac52}}{2}dx=\frac17x^{\frac72}}
+\\[5]
+\scriptsize{u_2=\int \frac{\begin{bmatrix}
+1&0&x^2&\\
+1&0&2x+x^2&\\
+1&x^{\frac12}&2+4x+x^2&\\
+\end{bmatrix}}{2}dx=\int \frac{-2x^{\frac32}}{2}dx=-\frac25x^{\frac52}}
+\\[8]
+\scriptsize{u_3=\int \frac{\begin{bmatrix}
+1&x&0&\\
+1&1+x&0&\\
+1&2+x&x^{\frac12}&\\
+\end{bmatrix}}{2}dx=\int \frac{x^{\frac12}}{2}dx=\frac13x^{\frac32}}
+
+\end{frame}
+\begin{frame}{variation of parameter}
+\[y_p=y_1u_1+y_2u_2+y_3u_3=(\frac17-\frac25+\frac13)x^{\frac72}e^x\]
+\[\Rightarrow  y=y_h+y_p=Ax^2e^{x}+Bxe^x+Ce^x+(\frac17-\frac25+\frac13)x^{\frac72}e^x\]
+
+
+\[
+ \left\{\begin{matrix}
+        y(0)&=1&=&C&\\
+        y'(0)&=2&=&B+C&\\
+        y''(0)&=1&=&2A+2B+C&\\
+       \end{matrix}
+ \right.
+\Rightarrow A=-1,B=1,C=1
+\]
+\[y=y_h+y_p=-x^2e^{x}+xe^x+e^x+\frac8{105}x^{\frac72}e^x\]
+\end{frame}
+\begin{frame}{method of convolution}
+initial formula
+\scriptsize{\[y=y_k(t)+y_s*f(t)=\mathcal{L}^{-1}\{\frac{(as+b)Y_0+aY_1}{as^2+bs+c}\}+\mathcal{L}^{-1}\{\frac{F(s)}{as^2+bs+c}\}\]
+\normalsize{promote to 3}  
+\scriptsize{\[\Rightarrow\mathcal{L}^{-1}\{\frac{(as^2+bs+c)Y_0+(as+b)Y_1+aY_2}{as^3+bs^2+cs+d}\}+\mathcal{L}^{-1}\{\frac{F(s)}{as^3+bs^2+cs+d}\}\]}}
+\end{frame}
+
+\begin{frame}{method of convolution}
+    a=1, b=-3,c=3,d=-1
+\[\Rightarrow y_s=\mathcal{L}^{-1}\{\frac{1}{(s-1)^3}\}=\frac{e^xx^2}2\]
+\[y_s*f(x)=\int^x_0\frac{e^{x-t}(x-t)^2}2t^{\frac12}e^tdt=\frac{e^x}{2}\int^x_0x^2t^{\frac12}-2xt^{\frac32}+x^{\frac52}dt\]
+\\[5]
+\[=\frac{e^x}{2}[\frac23x^{\frac72}-\frac45x^{\frac72}+\frac27x^{\frac72}]=\frac8{105}x^{\frac72}e^x\]
+\end{frame}
+
+
+\begin{frame}{method of convolution}
+    \[y_k=\mathcal{L}^{-1}\{\frac{(s^2-3s+3)(1)+(s-3)(2)+(1)}{(s-1)^3}\}=\mathcal{L}^{-1}\{\frac{(s^2-s-2)}{(s-1)^3}\}\\[5]=\mathcal{L}^{-1}\{\frac{-2}{(s-1)^3}+\frac1{(s-1)^2}+\frac1{s-1}\}=-x^2e^x+xe^x+e^x\]
+\[y=y_s*f(x)+y_k=-x^2e^x+xe^x+e^x+\frac8{105}x^{\frac72}e^x\]
+\end{frame}
+
+\begin{frame}{class outline}
+      
+      \textbf{ First-order Differential Equations}
+      
+        \[\bullet Separable\;Equations\]
+        \[\bullet Linear\;Equations\]
+        \[\bullet Exact\;Equations\]
+        \[\bullet Bernoulli\; Equations\]
+      
+        \textbf{Second-order Differential Equations}
+      \[\bullet Homogeneous\; Solution\]
+      \[\bullet Particular\;  Solution\]
+        \[\bullet Variation \; Of\;  Parameter\]
+        \textbf{Laplace Transform}
+      \[\bullet Transform \;And \;Inverse \;Transform\]
+        \[\bullet Method\; Of \;Convolution\]
+    
+\end{frame}
+\begin{frame}{First-order Differential Equations }
+     
+        Separable Equations
+        \[y'=\frac{f(x)}{g(y)}\Rightarrow \int g(y)dy=\int f(x)dx\]
+        Linear Equations
+        \[y'+p(x)y=g(x),let \;u(x)=e^{\int p(x)dx}\]
+        Exact Equations
+        \[M(x,y)dx+N(x,y)dy=0\]
+        Bernoulli Equations
+        \[y'+p(x)y=q(x)y^n ,let \;u(x)=y^{1-n}\]
+     % Homogeneous Equations y=ux
+     % riccati 帶入解答
+      
+\end{frame}
+
+\begin{frame}{Second-order Differential Equations}
+     
+        homogeneous solution:
+        \[a_k\lambda^k+a_{k-1}\lambda^{k-1}\cdots \]
+        \[1.repeat \; root : A_{k-1}x^{k-1}e^{ax}+A_{k-2}x^{k-2}e^{ax}\cdots\]
+        \[2.imagnary\; root: e^{(a+bi)x}\Rightarrow e^{ax}(A\cos(bx)+iB\sin(bx)) \] 
+        \[3.other : Ae^{ax}+Be^{bx}\]
+        particular solution
+        \[e^x,\sin(x),\cos(x)\]
+        variation of parameter
+        
+     
+      
+\end{frame}
+
+\begin{frame}{Laplace Transform}
+     
+    Transform and inverse Transform
+    \small{\[F(s)={\int^\infty_0} f(t)e^{-st}dt\]
+    \[t^k\Rightarrow\frac{k!}{s^{k+1}}\]
+    \[e^{at} \Rightarrow F(s)\rightarrow F(s-a)  \]
+    \[e^{it}=\cos(t)+i\sin(t)\Rightarrow\frac{as+bi}{1+s^2}\]
+    \[f^{(n)}(t)\Rightarrow s^nF(s)-s^{(n-1)}f(0)-s^{(n-2)}f'(0)\cdots\]
+    \[\delta(t-t_0) \Rightarrow  e^{-st_0}\]
+    \[u(t-a)=\frac{e^{-as}}{s}\]}
+    method  of convolution
+    
+    
+     
+      
+\end{frame}
+\begin{frame}{my favorite part}
+ \huge{laplace transform}
+\end{frame}
+\end{document}
